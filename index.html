@@ -57,8 +57,6 @@
             transform: scale(1.04);
             transition: 0.4s;
             box-shadow: 0 0 10px #f48989;
-
-
         }
 
         .navbar-nav .nav-item {
@@ -80,7 +78,7 @@
             left: 59%;
             /* transform: translate(-50%, -50%); */
             color: #ffc7c7;
-            /* animation: blink-animation 0.7s infinite step-start; */
+            animation: blink-animation 0.7s infinite step-start;
         }
 
         .request {
@@ -91,21 +89,49 @@
             background-color: transparent;
         }
 
-        .card-header {
-            display: flex;
-            align-items: center;
-            
-        }
-        /* .profile-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        } */
         .stars img {
             width: auto;
             height: 15px;
         }
+
+        .review-container {
+            position: relative;
+        }
+
+        .review-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, White 90%);
+            /* White overlay with 70% opacity */
+            z-index: 1;
+        }
+
+        .review-container .card-body .p {
+            max-height: 40px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .review-container .card-header {
+            display: flex;
+            align-items: center;
+        }
+
+        #money-back{
+            background-color: #ffd488;
+        }
+
+        #globe-data-center{
+            background-color: #f0f0ff;
+        }
+        #high-speed div{
+            background: greenyellow;
+        }
+
 
         @keyframes blink-animation {
             50% {
@@ -121,19 +147,17 @@
             .border-lg-end {
                 border-right: 1px solid #ccc;
             }
+
             .border-lg-end::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 10%;  
-        height: 80%;
-        width: 1px;
-        background-color: #ccc;
-    }
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 10%;
+                height: 80%;
+                width: 1px;
+                background-color: #ccc;
+            }
         }
-
-
-
     </style>
 </head>
 
@@ -215,7 +239,7 @@
                         </li>
                     </ul>
 
-                    <h2 class="fs-1 mt-4"><sup class="fs-4">₹</sup> 69.00 <span class="text-muted fs-4">/mo</span></h2>
+                    <h2 class="fs-1 mt-4"><sup class="fs-4">₹</sup> 119.00 <span class="text-muted fs-4">/mo</span></h2>
 
                     <a href="#" class="btn btn-primary btn-lg mt-3">Get Started</a>
                     <p class="mt-3">
@@ -266,8 +290,8 @@
             <div class="col-lg-3">
                 <div class="card">
                     <div class="card-header bg-white border-0 my-3">
-                        <h4 class="mb-1">Ignite</h4>
-                        <p class="text-muted small">Great for first-time users.</p>
+                        <h4 class="mb-0">Ignite</h4>
+                        <p class="text-muted small mb-0">Great for first-time users.</p>
                     </div>
                     <div class="card-body">
                         <h3 class="text-dark"><sup class="fs-6">₹</sup>69.00/mo</h3>
@@ -578,7 +602,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="col-12 col-md-4 border-lg-end">
                 <div class="card bg-transparent border-0">
                     <div class="card-header bg-transparent border-0 d-flex align-items-center justify-content-start">
@@ -590,7 +614,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="col-12 col-md-4">
                 <div class="card bg-transparent border-0">
                     <div class="card-header bg-transparent border-0 d-flex align-items-center justify-content-start">
@@ -603,7 +627,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid py-5">
         <div class="row align-items-center mb-md-3 mb-3">
             <div class="col-12 text-center fs-1 fw-bold">
@@ -618,60 +642,128 @@
     </div>
 
     <div class="container my-5">
-        <div class="row mb-5" style="background-image: linear-gradient(transparent,rgb(188, 41, 41));">
-            <!-- Card 1 -->
-            <div class="col-12 col-md-4">
-                <div class="card shadow-sm p-3">
-                    <div class="card-header  border-0 bg-white">
-                        <img src="https://ljku.edu.in/web/image/faculty.member/203/image_1920" alt="Profile" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                        <div>
-                            <h5 class="mb-0">Hiral Patel</h5>
-                            <div class="stars">
-                                <img src="assets/star.png" alt="★">
+        <div class="review-container">
+            <div class="row mb-lg-5">
+                <div class="col-12 col-md-4 mb-3 mb-lg-0">
+                    <div class="card border rounded-5 p-3">
+                        <div class="card-header  border-0 bg-white">
+                            <img src="https://ljku.edu.in/web/image/faculty.member/189/image_1920" alt="Profile"
+                                class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-0">Nikunj Shingala</h5>
+                                <div class="stars">
+                                    <img src="assets/star.png" alt="★">
+                                </div>
                             </div>
                         </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Best security & support</h5>
+                            <p class="card-text text-secondary fs-6">Initially faced minor challenges, but MilesWeb's
+                                security measures and dedicated support ensured a positive experience.</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Best security & support</h5>
-                        <p class="card-text text-secondary fs-6">Initially faced minor challenges, but MilesWeb's security measures and dedicated support ensured a positive experience.</p>
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-lg-0">
+                    <div class="card border rounded-5 p-3">
+                        <div class="card-header  border-0 bg-white">
+                            <img src="https://ljku.edu.in/web/image/faculty.member/279/image_1920" alt="Profile"
+                                class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-0">Jenis shah</h5>
+                                <div class="stars">
+                                    <img src="assets/star.png" alt="★">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Exceptional professionalism</h5>
+                            <p class="card-text text-secondary fs-6">Being a newbie, I truly commend MilesWeb’s
+                                exceptional patience and professionalism in assisting me. I have now zero confusion
+                                regarding my services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-lg-0">
+                    <div class="card border rounded-5 p-3">
+                        <div class="card-header  border-0 bg-white">
+                            <img src="https://ljku.edu.in/web/image/faculty.member/160/image_1920" alt="Profile"
+                                class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-0">Kavit Shah</h5>
+                                <div class="stars">
+                                    <img src="assets/star.png" alt="★">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Seamless domain setup</h5>
+                            <p class="card-text text-secondary fs-6">Impressed by MilesWeb's quick turnaround time and
+                                helpful guidance. Just a few messages, and my domain setup process was streamlined.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-    
-            <!-- Card 2 -->
-            <div class="col-12 col-md-4">
-                <div class="card shadow-sm p-3">
-                    <div class="card-header  border-0 bg-white">
-                        <img src="https://ljku.edu.in/web/image/faculty.member/279/image_1920"alt="Profile" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                        <div>
-                            <h5 class="mb-0">Jenis shah</h5>
-                            <div class="stars">
-                                <img src="assets/star.png" alt="★">
+            <div class="row mb-3">
+                <div class="col-12 col-md-4 mb-3 mb-lg-0">
+                    <div class="card border rounded-5 p-3">
+                        <div class="card-header  border-0 bg-white">
+                            <img src="https://ljku.edu.in/web/image/faculty.member/247/image_1920" alt="Profile"
+                                class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-0">Pratik Shah</h5>
+                                <div class="stars">
+                                    <img src="assets/star.png" alt="★">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Exceptional professionalism</h5>
-                        <p class="card-text text-secondary fs-6">Being a newbie, I truly commend MilesWeb’s exceptional patience and professionalism in assisting me. I have now zero confusion regarding my services.</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Super easy to use services</h5>
+                            <p class="card-text text-secondary fs-6">They provided fantastic support; all my major
+                                concerns were resolved in a fraction of time. They are experts in what they do; setting
+                                up and connecting my WordPress console was just a matter of short conversation.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-    
-            <!-- Card 3 -->
-            <div class="col-12 col-md-4">
-                <div class="card shadow-sm p-3">
-                    <div class="card-header  border-0 bg-white">
-                        <img src="https://ljku.edu.in/web/image/faculty.member/160/image_1920" alt="Profile" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                        <div>
-                            <h5 class="mb-0">Kavit Shah</h5>
-                            <div class="stars">
-                                <img src="assets/star.png" alt="★">
+
+                <div class="col-12 col-md-4 mb-3 mb-lg-0">
+                    <div class="card border rounded-5 p-3">
+                        <div class="card-header  border-0 bg-white">
+                            <img src="https://ljku.edu.in/web/image/faculty.member/203/image_1920" alt="Profile"
+                                class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-0">Hiral Patel</h5>
+                                <div class="stars">
+                                    <img src="assets/star.png" alt="★">
+                                </div>
                             </div>
                         </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Precise resolutions always</h5>
+                            <p class="card-text text-secondary fs-6">Their team delivered exceptional support by fixing
+                                all my database errors—quick, efficient, and reliable service.</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Seamless domain setup</h5>
-                        <p class="card-text text-secondary fs-6">Impressed by MilesWeb's quick turnaround time and helpful guidance. Just a few messages, and my domain setup process was streamlined.</p>
+                </div>
+
+                <div class="col-12 col-md-4 mb-3 mb-lg-0">
+                    <div class="card border rounded-5 p-3">
+                        <div class="card-header  border-0 bg-white">
+                            <img src="https://ljku.edu.in/web/image/faculty.member/151/image_1920" alt="Profile"
+                                class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-0">Dilip J. Udhani</h5>
+                                <div class="stars">
+                                    <img src="assets/star.png" alt="★">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">MilesWeb is another name of best support</h5>
+                            <p class="card-text text-secondary fs-6">Impressed by MilesWeb's quick turnaround time and
+                                helpful guidance. Just a few messages, and my domain setup process was streamlined.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -683,6 +775,65 @@
         </div>
     </div>
 
+    <div class="container-fluid my-5">
+        <div class="row border rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="money-back">
+            <div class="col-12 col-lg-6">
+                <h1>30-day money back guarantee</h1>
+                <p>
+                    Fully explore the features, performance, and assess our customer support. If we do not meet your
+                    expectations, ask for a refund & we will process it promptly with no questions asked.
+                </p>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+                <img src="assets/42ff8acc-b171-4ac9-b705-e6934059389b-removebg-preview.png" alt="img" style="width: 250px;" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-5">
+        <div class="row rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="globe-data-center">
+            <div class="col-12 col-lg-6">
+                <h1>Choose your data center for faster load times</h1>
+                <p>
+                    We provide unparalleled global reach to our web hosting service buyers. We offer superior web hosting solutions with robust data centers in the USA, Canada, the United Kingdom, Singapore, Australia, and other locations.
+
+Get unmatched performance and minimal latency by hosting at a data center location closest to your audience.
+                </p>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+                <img src="assets/globe-data-center.png" alt="img" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-5">
+        <div class="row rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="high-speed">
+            <div class="col-12 col-lg-6 p-5 rounded-5">
+                <h1>Stay ahead with our high-speed hosting</h1>
+                <p>
+                    Faster servers, better business. Outpace the competition with our lightning-fast web hosting speeds tailored for varied business needs. Watch your site dominate search and boost SEO effortlessly.
+                </p>
+                <button class="btn btn-primary btn-lg">Get started</button>
+            </div>
+            <div class="col-12 col-lg-6 text-center rounded-5">
+                <img src="assets/2.png" alt="img" class="img-fluid">
+            </div>
+        </div>
+        <div class="row rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="migration">
+            <div class="col-12 col-lg-6 p-5 rounded-5">
+                <h1>Free website migration, fully managed by Us</h1>
+                <p>
+                    Our experts handle the technical aspects of moving your website, with data security at the utmost priority. So sit back and enjoy a stress-free transition to our platform without any additional costs.
+                </p>
+                <button class="btn btn-primary btn-lg">Migrate now</button>
+            </div>
+            <div class="col-12 col-lg-6 text-center rounded-5">
+                <img src="assets/2.png" alt="img" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    
+    
 </body>
 
 </html>
