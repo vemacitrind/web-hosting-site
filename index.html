@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+        :root {
+            --hColor: #123455;
+        }
+
+        * {
+            color: var(--hColor);
+        }
+
+        .dropdown-hosting {
+            position: absolute;
+            left: 0;
+        }
+
+        .btn:not(.btn-primary) {
+            background: #ffc7c7;
+            border: 1px solid #f48989;
+            color: #ed6f6f;
+        }
+
+        .btn:hover:not(.btn-primary) {
+            background: #ed6f6f;
+            border: 1px solid #ed6f6f;
+            color: #ffffff;
+            transform: scale(1.04);
+            transition: 0.2s;
+        }
+
+        .card.activeCard .btn.btn-lg {
+            transform: scale(1.04);
+            background: #ed6f6f;
+            border: 1px solid #ed6f6f;
+            color: #ffffff;
+        }
+
+        .plans .card.activeCard {
+            height: 100%;
+            border: 2px solid #f48989;
+            box-shadow: 0 0 5px #f48989;
+        }
+
+        .plans .card:hover {
+            height: 100%;
+            transform: scale(1.04);
+            transition: 0.4s;
+            box-shadow: 0 0 10px #f48989;
+
+
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 25px;
+        }
+
+        .navbar-nav .nav-item:hover {
+            background: #ffe5e5;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .img-container::before {
+            content: "80% off";
+            font-size: 3vw;
+            font-family: "Orbitron", serif;
+            position: absolute;
+            top: 24.5%;
+            left: 59%;
+            /* transform: translate(-50%, -50%); */
+            color: #ffc7c7;
+            /* animation: blink-animation 0.7s infinite step-start; */
+        }
+
+        .request {
+            background-color: #F0F0FF;
+        }
+
+        .bg-transparent {
+            background-color: transparent;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            
+        }
+        /* .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        } */
+        .stars img {
+            width: auto;
+            height: 15px;
+        }
+
+        @keyframes blink-animation {
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .border-lg-end {
+                border-right: 1px solid #ccc;
+            }
+            .border-lg-end::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 10%;  
+        height: 80%;
+        width: 1px;
+        background-color: #ccc;
+    }
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="assets/logo.png" alt=""
+                    style="width: 12vw; margin-left: 30px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownWordPress" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            WordPress
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large" aria-labelledby="navbarDropdownWordPress">
+                            <li><a class="dropdown-item" href="#">WordPress Hosting</a></li>
+                            <li><a class="dropdown-item" href="#">E-commerce businesses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHosting" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Hosting</a>
+                        <ul class="dropdown-menu dropdown-menu-large dropdown-hosting"
+                            aria-labelledby="navbarDropdownHosting">
+                            <li><a class="dropdown-item" href="#">Web Hosting</a></li>
+                            <li><a class="dropdown-item" href="#">Cloud Hosting</a></li>
+                            <li><a class="dropdown-item" href="#">Reseller Hosting</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVPS" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            VPS & Dedicated
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large" aria-labelledby="navbarDropdownVPS">
+                            <li><a class="dropdown-item" href="#">VPS Hosting</a></li>
+                            <li><a class="dropdown-item" href="#">Managed VPS Hosting</a></li>
+                            <li><a class="dropdown-item" href="#">Windows VPS</a></li>
+                            <li><a class="dropdown-item" href="#">Dedicated Server</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Domain</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn" type="submit">Login</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-5">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 px-5">
+                <div class="container-fluid">
+                    <h5>Best Website Hosting</h5>
+
+                    <h1 class="fw-bold">New Year Sale - Up to 80% Off Web Hosting</h1>
+
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2">
+                            <i class="bi bi-check text-success me-2"></i>
+                            Free Domain, SSL, and Website Builder
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check text-success me-2"></i>
+                            24/7 Expert Support, No Chatbots
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check text-success me-2"></i>
+                            Free Website Migration
+                        </li>
+                    </ul>
+
+                    <h2 class="fs-1 mt-4"><sup class="fs-4">₹</sup> 69.00 <span class="text-muted fs-4">/mo</span></h2>
+
+                    <a href="#" class="btn btn-primary btn-lg mt-3">Get Started</a>
+                    <p class="mt-3">
+                        <i class="bi bi-shield-check text-success me-2"></i>
+                        30-day money-back guarantee
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 px-5">
+                <div class="img-container" style="position: relative;;">
+                    <img src="assets/front-page-1.png" alt="Web Hosting Promo" class="img-fluid"
+                        style="border: 3px solid #ffe5e5;">
+                    <!-- <p class="blinking-text">
+                        80% Off
+                    </p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5">
+        <div class="row align-items-center mb-md-5 mb-3">
+            <div class="col-12 text-center fs-1 fw-bold">
+                Choose your best web hosting plan
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-md-4 text-center text-md-end fs-6">
+                <i class="bi bi-check text-success me-1"></i>
+                Buy for 1, 12, or 36 months
+            </div>
+            <div class="col-12 col-md-4 text-center fs-6">
+                <i class="bi bi-check text-success me-1"></i>
+                Multiple data center locations
+            </div>
+            <div class="col-12 col-md-4 text-center text-md-start fs-6">
+                <i class="bi bi-check text-success me-1"></i>
+                All plans include a 30-day risk-free trial
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container my-5 plans">
+        <div class="row d-none d-lg-flex">
+
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-white border-0 my-3">
+                        <h4 class="mb-1">Ignite</h4>
+                        <p class="text-muted small">Great for first-time users.</p>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="text-dark"><sup class="fs-6">₹</sup>69.00/mo</h3>
+                        <div class="d-grid my-3">
+                            <button class="btn btn-lg">Add to Cart</button>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check text-success me-1"></i> 1 Website</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 50 GB NVMe Storage</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                            <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> Free Domain</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 2 Email Accounts</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                            <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                            <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                            <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> WooCommerce</li>
+                            <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> Premium CDN</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 3,00,000 Files & Directories</li>
+                            <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> Priority Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card activeCard">
+                    <div class="card-header bg-white border-0 my-3">
+                        <h4 class="mb-1">Elite</h4>
+                        <p class="text-muted small">Ideal for new blogs and startups.</p>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="text-dark"><sup class="fs-6">₹</sup>119.00/mo</h3>
+                        <div class="d-grid my-3">
+                            <button class="btn btn-lg">Add to Cart</button>
+                        </div>
+                        <ul class="list-unstyled">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check text-success me-1"></i> 100 Websites</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 100 GB NVMe Storage</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Free Domain </li>
+                                <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 100 Email Accounts</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                                <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)
+                                </li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                                <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Starter WooCommerce</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Premium CDN</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 5,00,000 Files & Directories</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Priority Support</li>
+                            </ul>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-white border-0 my-3">
+                        <h4 class="mb-1">Stellar</h4>
+                        <p class="text-muted small">Optimized for growing businesses.</p>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="text-dark"><sup class="fs-6">₹</sup>199.00/mo</h3>
+                        <div class="d-grid my-3">
+                            <button class="btn btn-lg">Add to
+                                Cart</button>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check text-success me-1"></i> 200 Websites</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 200 GB NVMe Storage</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Free Domain </li>
+                            <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 100 Email Accounts</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                            <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                            <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Basic WooCommerce</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Premium CDN</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 7,00,000 Files & Directories</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Priority Support</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-white border-0 my-3">
+                        <h4 class="mb-1">Alpha Cloud</h4>
+                        <p class="text-muted small">For high-traffic and e-commerce sites.</p>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="text-dark"><sup class="fs-6">₹</sup>599.00/mo</h3>
+                        <div class="d-grid my-3">
+                            <button class="btn btn-lg">Add to
+                                Cart</button>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check text-success me-1"></i> 400 Websites</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 250 GB NVMe Storage</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Free Domain </li>
+                            <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 150 Email Accounts</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                            <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                            <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Standard WooCommerce</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Premium CDN</li>
+                            <li><i class="bi bi-check text-success me-1"></i> 30,00,000 Files & Directories</li>
+                            <li><i class="bi bi-check text-success me-1"></i> Priority Support</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="imageCarousel" class="carousel slide d-lg-none" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card">
+                        <div class="card-header bg-white border-0 my-3">
+                            <h4 class="mb-1">Ignite</h4>
+                            <p class="text-muted small">Great for first-time users.</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-dark"><sup class="fs-6">₹</sup>69.00/mo</h3>
+                            <div class="d-grid my-3">
+                                <button class="btn btn-lg">Add to Cart</button>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check text-success me-1"></i> 1 Website</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 50 GB NVMe Storage</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                                <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> Free Domain</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 2 Email Accounts</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                                <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)
+                                </li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                                <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                                <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> WooCommerce</li>
+                                <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> Premium CDN</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 3,00,000 Files & Directories</li>
+                                <li class="text-secondary"><i class="bi bi-x text-danger me-1"></i> Priority Support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="card activeCard">
+                        <div class="card-header bg-white border-0 my-3">
+                            <h4 class="mb-1">Elite</h4>
+                            <p class="text-muted small">Ideal for new blogs and startups.</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-dark"><sup class="fs-6">₹</sup>119.00/mo</h3>
+                            <div class="d-grid my-3">
+                                <button class="btn btn-lg">Add to Cart</button>
+                            </div>
+                            <ul class="list-unstyled">
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-check text-success me-1"></i> 100 Websites</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> 100 GB NVMe Storage</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Free Domain </li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration
+                                    </li>
+                                    <li><i class="bi bi-check text-success me-1"></i> 100 Email Accounts</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)
+                                    </li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Starter WooCommerce</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Premium CDN</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> 5,00,000 Files & Directories</li>
+                                    <li><i class="bi bi-check text-success me-1"></i> Priority Support</li>
+                                </ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-header bg-white border-0 my-3">
+                            <h4 class="mb-1">Stellar</h4>
+                            <p class="text-muted small">Optimized for growing businesses.</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-dark"><sup class="fs-6">₹</sup>199.00/mo</h3>
+                            <div class="d-grid my-3">
+                                <button class="btn btn-lg">Add to
+                                    Cart</button>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check text-success me-1"></i> 200 Websites</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 200 GB NVMe Storage</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Free Domain </li>
+                                <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 100 Email Accounts</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                                <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)
+                                </li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                                <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Basic WooCommerce</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Premium CDN</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 7,00,000 Files & Directories</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Priority Support</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-header bg-white border-0 my-3">
+                            <h4 class="mb-1">Alpha Cloud</h4>
+                            <p class="text-muted small">For high-traffic and e-commerce sites.</p>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-dark"><sup class="fs-6">₹</sup>599.00/mo</h3>
+                            <div class="d-grid my-3">
+                                <button class="btn btn-lg">Add to
+                                    Cart</button>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check text-success me-1"></i> 400 Websites</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 250 GB NVMe Storage</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Managed WordPress Hosting</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Website Builder</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Free Domain </li>
+                                <li><i class="bi bi-check text-success me-1"></i> Free Automatic Website Migration</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 150 Email Accounts</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Daily and On-Demand Backups</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unlimited Free SSL</li>
+                                <li><i class="bi bi-check text-success me-1"></i> WordPress Acceleration (LiteSpeed)
+                                </li>
+                                <li><i class="bi bi-check text-success me-1"></i> Unmetered Bandwidth</li>
+                                <li><i class="bi bi-check text-success me-1"></i> cPanel + 1-Click Installer</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Multiple Server Locations</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Standard WooCommerce</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Premium CDN</li>
+                                <li><i class="bi bi-check text-success me-1"></i> 30,00,000 Files & Directories</li>
+                                <li><i class="bi bi-check text-success me-1"></i> Priority Support</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container m-5 rounded-4 request">
+        <div class="row">
+            <div class="col-12 col-md-4 border-lg-end">
+                <div class="card bg-transparent border-0">
+                    <div class="card-header bg-transparent border-0">
+                        <i class="bi bi-chat-dots" style="font-size: 30px;"></i>
+                    </div>
+                    <div class="card-body bg-transparent">
+                        <h4 class="fs-5 mb-0">Sales chat</h4>
+                        <div class="text-secondary">Instant response</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-12 col-md-4 border-lg-end">
+                <div class="card bg-transparent border-0">
+                    <div class="card-header bg-transparent border-0 d-flex align-items-center justify-content-start">
+                        <i class="bi bi-envelope-at" style="font-size: 30px;"></i>
+                        <h4 class="fs-5 ms-3 mb-0">Email</h4>
+                    </div>
+                    <div class="card-body bg-transparent">
+                        <div class="text-secondary">jvedant.711@gmail.com</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-12 col-md-4">
+                <div class="card bg-transparent border-0">
+                    <div class="card-header bg-transparent border-0 d-flex align-items-center justify-content-start">
+                        <i class="bi bi-puzzle" style="font-size: 30px;"></i>
+                        <h4 class="fs-5 ms-3 mb-0">Click here for a custom solution</h4>
+                    </div>
+                    <div class="card-body bg-transparent">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid py-5">
+        <div class="row align-items-center mb-md-3 mb-3">
+            <div class="col-12 text-center fs-1 fw-bold">
+                Hear what our valued customers have to say
+            </div>
+        </div>
+        <div class="row align-items-center mb-md-5 mb-3">
+            <div class="col-12 text-center fs-6">
+                We highly appreciate the kind and stellar feedback from our customers immensely.
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row mb-5" style="background-image: linear-gradient(transparent,rgb(188, 41, 41));">
+            <!-- Card 1 -->
+            <div class="col-12 col-md-4">
+                <div class="card shadow-sm p-3">
+                    <div class="card-header  border-0 bg-white">
+                        <img src="https://ljku.edu.in/web/image/faculty.member/203/image_1920" alt="Profile" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h5 class="mb-0">Hiral Patel</h5>
+                            <div class="stars">
+                                <img src="assets/star.png" alt="★">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Best security & support</h5>
+                        <p class="card-text text-secondary fs-6">Initially faced minor challenges, but MilesWeb's security measures and dedicated support ensured a positive experience.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="col-12 col-md-4">
+                <div class="card shadow-sm p-3">
+                    <div class="card-header  border-0 bg-white">
+                        <img src="https://ljku.edu.in/web/image/faculty.member/279/image_1920"alt="Profile" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h5 class="mb-0">Jenis shah</h5>
+                            <div class="stars">
+                                <img src="assets/star.png" alt="★">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Exceptional professionalism</h5>
+                        <p class="card-text text-secondary fs-6">Being a newbie, I truly commend MilesWeb’s exceptional patience and professionalism in assisting me. I have now zero confusion regarding my services.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="col-12 col-md-4">
+                <div class="card shadow-sm p-3">
+                    <div class="card-header  border-0 bg-white">
+                        <img src="https://ljku.edu.in/web/image/faculty.member/160/image_1920" alt="Profile" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h5 class="mb-0">Kavit Shah</h5>
+                            <div class="stars">
+                                <img src="assets/star.png" alt="★">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Seamless domain setup</h5>
+                        <p class="card-text text-secondary fs-6">Impressed by MilesWeb's quick turnaround time and helpful guidance. Just a few messages, and my domain setup process was streamlined.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <button class="btn btn-primary btn-lg">Read more reviews</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
