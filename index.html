@@ -24,14 +24,19 @@
             position: absolute;
             left: 0;
         }
+        
+        *::selection{
+            background: blueviolet;
+            color:yellow;
+        }
 
-        .btn:not(.btn-primary) {
+        .btn:not(.btn-primary, .btn-light) {
             background: #ffc7c7;
             border: 1px solid #f48989;
             color: #ed6f6f;
         }
 
-        .btn:hover:not(.btn-primary) {
+        .btn:hover:not(.btn-primary, .btn-light) {
             background: #ed6f6f;
             border: 1px solid #ed6f6f;
             color: #ffffff;
@@ -59,6 +64,14 @@
             box-shadow: 0 0 10px #f48989;
         }
 
+        .lista li{
+            margin-bottom: 1rem;
+        }
+
+        .lista li:hover {
+            text-shadow: 0 0 2px whitesmoke;
+        }
+
         .navbar-nav .nav-item {
             margin-right: 25px;
         }
@@ -79,6 +92,22 @@
             /* transform: translate(-50%, -50%); */
             color: #ffc7c7;
             animation: blink-animation 0.7s infinite step-start;
+        }
+
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .accordion-button {
+            border-radius: 0;
+            background: none;
+            font-weight: bold;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #f8f9fa;
+            box-shadow: none;
         }
 
         .request {
@@ -106,7 +135,6 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, transparent 60%, White 90%);
-            /* White overlay with 70% opacity */
             z-index: 1;
         }
 
@@ -121,17 +149,52 @@
             align-items: center;
         }
 
-        #money-back{
+        #money-back {
             background-color: #ffd488;
         }
 
-        #globe-data-center{
+        #globe-data-center {
             background-color: #f0f0ff;
         }
-        #high-speed div{
+
+        #high-speed div {
             background: greenyellow;
         }
 
+        #migration div {
+            background: #cecef9;
+        }
+
+
+        .flip-card {
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
 
         @keyframes blink-animation {
             50% {
@@ -140,6 +203,18 @@
 
             100% {
                 opacity: 1;
+            }
+        }
+
+        @media (min-width: 991px) {
+            #oNe {
+                width: 55%;
+                margin-right: 1rem;
+            }
+
+            #OnE {
+                width: 55%;
+                margin-left: 1rem;
             }
         }
 
@@ -215,7 +290,7 @@
             </div>
         </div>
     </nav>
-
+    <!-- finish -->
     <div class="container-fluid py-5">
         <div class="row align-items-center">
             <div class="col-12 col-md-6 px-5">
@@ -260,6 +335,7 @@
             </div>
         </div>
     </div>
+    <!-- finish -->
 
     <div class="container-fluid py-5">
         <div class="row align-items-center mb-md-5 mb-3">
@@ -281,8 +357,8 @@
                 All plans include a 30-day risk-free trial
             </div>
         </div>
-
     </div>
+    <!-- finish -->
 
     <div class="container my-5 plans">
         <div class="row d-none d-lg-flex">
@@ -588,6 +664,7 @@
             </button>
         </div>
     </div>
+    <!-- finish -->
 
     <div class="container m-5 rounded-4 request">
         <div class="row">
@@ -627,6 +704,7 @@
             </div>
         </div>
     </div>
+    <!-- finish -->
 
     <div class="container-fluid py-5">
         <div class="row align-items-center mb-md-3 mb-3">
@@ -640,6 +718,7 @@
             </div>
         </div>
     </div>
+    <!-- finish -->
 
     <div class="container my-5">
         <div class="review-container">
@@ -774,6 +853,7 @@
             </div>
         </div>
     </div>
+    <!-- finish -->
 
     <div class="container-fluid my-5">
         <div class="row border rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="money-back">
@@ -785,19 +865,24 @@
                 </p>
             </div>
             <div class="col-12 col-lg-6 text-center">
-                <img src="assets/42ff8acc-b171-4ac9-b705-e6934059389b-removebg-preview.png" alt="img" style="width: 250px;" class="img-fluid">
+                <img src="assets/42ff8acc-b171-4ac9-b705-e6934059389b-removebg-preview.png" alt="img"
+                    style="width: 250px;" class="img-fluid">
             </div>
         </div>
     </div>
+    <!-- finish -->
 
     <div class="container-fluid my-5">
         <div class="row rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="globe-data-center">
             <div class="col-12 col-lg-6">
                 <h1>Choose your data center for faster load times</h1>
                 <p>
-                    We provide unparalleled global reach to our web hosting service buyers. We offer superior web hosting solutions with robust data centers in the USA, Canada, the United Kingdom, Singapore, Australia, and other locations.
+                    We provide unparalleled global reach to our web hosting service buyers. We offer superior web
+                    hosting solutions with robust data centers in the USA, Canada, the United Kingdom, Singapore,
+                    Australia, and other locations.
 
-Get unmatched performance and minimal latency by hosting at a data center location closest to your audience.
+                    Get unmatched performance and minimal latency by hosting at a data center location closest to your
+                    audience.
                 </p>
             </div>
             <div class="col-12 col-lg-6 text-center">
@@ -805,35 +890,323 @@ Get unmatched performance and minimal latency by hosting at a data center locati
             </div>
         </div>
     </div>
+    <!-- finish -->
 
     <div class="container-fluid my-5">
-        <div class="row rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="high-speed">
-            <div class="col-12 col-lg-6 p-5 rounded-5">
-                <h1>Stay ahead with our high-speed hosting</h1>
+        <div class="row rounded-5 mx-2 p-5 g-5" id="high-speed">
+            <div class="col-12 col-lg-7 p-5 rounded-5" id="oNe">
+                <h1>Stay ahead with our
+                    high-speed hosting</h1>
                 <p>
-                    Faster servers, better business. Outpace the competition with our lightning-fast web hosting speeds tailored for varied business needs. Watch your site dominate search and boost SEO effortlessly.
+                    Faster servers, better business. Outpace the competition with our lightning-fast web hosting speeds
+                    tailored for varied business needs. Watch your site dominate search and boost SEO effortlessly.
                 </p>
                 <button class="btn btn-primary btn-lg">Get started</button>
             </div>
-            <div class="col-12 col-lg-6 text-center rounded-5">
-                <img src="assets/2.png" alt="img" class="img-fluid">
+            <div class="col-12 col-lg-5 text-center d-flex align-items-center justify-content-center rounded-5">
+                <img src="https://www.milesweb.com/assets/images/home/speedy-web-hosting-services.png" alt="img"
+                    class="img-fluid" style="max-height: 100%; object-fit: cover;">
             </div>
         </div>
-        <div class="row rounded-5 m-5 p-5 d-flex justify-content-center align-items-center" id="migration">
-            <div class="col-12 col-lg-6 p-5 rounded-5">
+        <div class="row rounded-5 mx-2 p-5 g-5" id="migration">
+            <div class="col-12 col-lg-5 text-center d-flex align-items-center justify-content-center rounded-5">
+                <img src="https://www.milesweb.com/assets/images/home/website-migration.png" alt="img" class="img-fluid"
+                    style="max-height: 100%; object-fit: cover;">
+            </div>
+            <div class="col-12 col-lg-7 p-5 rounded-5" id="OnE">
                 <h1>Free website migration, fully managed by Us</h1>
                 <p>
-                    Our experts handle the technical aspects of moving your website, with data security at the utmost priority. So sit back and enjoy a stress-free transition to our platform without any additional costs.
+                    Our experts handle the technical aspects of moving your website, with data security at the utmost
+                    priority. So sit back and enjoy a stress-free transition to our platform without any additional
+                    costs.
                 </p>
                 <button class="btn btn-primary btn-lg">Migrate now</button>
             </div>
-            <div class="col-12 col-lg-6 text-center rounded-5">
-                <img src="assets/2.png" alt="img" class="img-fluid">
+        </div>
+    </div>
+    <!-- finish -->
+
+    <div class="container-fluid py-5">
+        <div class="row align-items-center mb-md-5 mb-3">
+            <div class="col-12 text-center fs-1 fw-bold">
+                Choose your best web hosting plan
+            </div>
+        </div>
+        <div class="row align-items-center text-center">
+            <p>We are the leading web hosting provider, focused on offering reliable, premium, and ultra-fast web
+                hosting services to customers globally.</p>
+        </div>
+    </div>
+    <!-- finish -->
+
+    <div class="container-fluid my-5">
+        <div class="row mx-5">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-5 p-5 rounded-5" style="background: #E5F5FF;">
+                <h1 class="fs-4">Renowned hosting company</h1>
+                <p>
+                    A leading and customer-centric web hosting provider, founded in 2012, catering to 60,000+ global
+                    clients. At our core is a commitment to offering the best web hosting services.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-5 p-5 rounded-5" style="background: #D1FBE0;">
+                <h1 class="fs-4">Smooth scalability</h1>
+                <p>
+                    Our web hosting plans are designed to accommodate the site's growing needs. Adapt to increased
+                    traffic and evolving needs with a superior user experience.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 p-5 rounded-5" style="background-color: #ffd488;">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-body row">
+                                <div class="col d-flex justify-content-center">
+                                    <img src="assets/thumb.png" class="img " alt="Credible reputation"
+                                        style="height: 80%;">
+                                </div>
+                                <h1 class="fs-4 card-text text-center">Credible reputation</h1>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="card-text" style="transform: translateY(-15px);">Throughout the years, we have
+                                established a strong reputation based on our commitment to client satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- finish -->
+
+    <div class="container-fluid my-5">
+        <div class="row align-items-center mb-md-5 mb-3">
+            <div class="col-12 text-start ps-5  fs-1 fw-bold">
+                Your Web Hosting Services Questions Answered
+            </div>
+        </div>
+    </div>
+    <!-- finish -->
+
+    <div class="container my-5">
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        Why Choose Webant?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        With 12+ years of experience and innovation in the web hosting industry, MilesWeb has been
+                        renowned for delivering faster page loads, ironclad security and best web hosting services to
+                        customers globally.
+                        <br>
+                        We focus on offering customer-oriented solutions at the best price. With this, you get access to
+                        world-class support 24/7 through email and live chat.
+                        <br>
+                        Enjoy a 99.9% uptime, 30-day money back guarantee with best-in-class features such as unlimited
+                        free SSL, cPanel, NVMe storage, 1-click installs, backups, and more which comes standard with
+                        our premium web hosting! This is one of the many ways MilesWeb sets the bar of excellence in
+                        helping businesses succeed. As an independent web hosting company, we have a track record of
+                        hosting over one million websites and earning the trust of over 60,000 customers worldwide.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq2">
+                        What features do I get with web hosting?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our web hosting plans offer everything you need to start and succeed online. You get superfast
+                        and highly reliable web hosting services with impactful features such as NVMe storage, cPanel
+                        and WordPress 1-click installer. A free domain*, website builder, and backups are included too.
+                        We provide 24/7 support to help you with any of your concerns related to web hosting.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq3">
+                        Can I migrate my website to MilesWeb?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes! Website migration is absolutely a breeze with us! Our dedicated migration team will help
+                        you migrate your website from another hosting provider to MilesWeb at no extra cost. We ensure
+                        all your website data is preserved exactly as it is and moved to our servers seamlessly.
+                        Customers switch to MilesWeb for a better and faster hosting experience.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq4">
+                        What kind of web hosting services you offer?
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We at MilesWeb, provide a range of web hosting services that can host any website and cater to
+                        any requirements.
+                        <br>
+                        Shared Hosting: Budget-friendly hosting option where multiple websites share resources on a
+                        single server. Ideal for first-timers and small to medium-sized websites.
+                        <br>
+                        <span class="fw-bold">VPS Hosting:</span> Wherein, one powerful physical server hosts multiple virtual servers, each isolated
+                        from the others.
+                        <br>
+                        <span class="fw-bold">Reseller Hosting:</span> A white-label approach to selling hosting services. MilesWeb offers 100%
+                        white-labeled reseller hosting allowing you to sell hosting under your own brand name.
+                        <br>
+                        <span class="fw-bold">Dedicated Hosting: </span>A type of web hosting wherein you get an entire physical server that’s
+                        completely dedicated to you.
+                        <br>
+                        <span class="fw-bold">Cloud Hosting:</span> Here your website/app is not deployed on a single server. Rather, a cluster of
+                        virtual and physical cloud servers is connected internally. This ensures higher flexibility and
+                        scalability.
+                        <br>
+                        You can choose a web hosting plan that best suits your requirements and budget!
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq5">
+                        Can I upgrade my hosting plan later?
+                    </button>
+                </h2>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, you can upgrade your hosting plan anytime based on your needs.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq6">
+                        Do you offer refunds?
+                    </button>
+                </h2>
+                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, we offer a 30-day money-back guarantee on all hosting plans.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- finish -->
+
+    <div class="container-fluid my-5">
+        <div class="row px-5">
+            <div class="col-12 rounded-5 p-5 bg-primary" style="">
+                <div class="row text-center mb-2">
+                    <div class="fs-2 fw-bold" style="color: #ffffff94;">Hosting</div>
+                </div>
+                <div class="row text-center mb-2">
+                    <div class="col fs-1 fw-bold text-light">10,000+ Clients</div>
+                </div>
+                <div class="row text-center">
+                    <div class="col fs-5 " style="color: #ffffff94;">Websites and Apps</div>
+                </div>
+                <div class="row text-center mt-2">
+                    <div class="col fs-4 fw-semibold" style="color: rgb(86, 241, 125);">We’re only missing yours!</div>
+                </div>
+                <hr class="mx-auto" style="border: 1px solid rgb(86, 241, 125);box-shadow: 0 0 1px rgb(86, 241, 125); width: 15vw;">
+                <div class="row mt-4">
+                    <div class="col d-flex justify-content-center">
+                        <button class="btn btn-light px-4 py-2 fs-5 rounded-pill shadow text-primary">
+                            <i class="bi bi-chat-dots text-primary"></i> Talk to an Expert
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- finish -->
+
+    <div class="container-fluid mt-5 pt-5"style="background: #061a40;">
+        <div class="row">
+            <div class="col-md-3 px-4">
+                <img src="assets/logo.png" alt="Company Logo" class="img-fluid mb-3" style="max-width: 150px;">
+                <p class="text-light">Founded in 2024 with an aim to gain good marks in FSD practicals.</p>
+                <div class="d-flex gap-3" id="social">
+                    <a href="#" ><i class="bi bi-facebook fs-4 text-secondary"></i></a>
+                    <a href="#" ><i class="bi bi-twitter fs-4 text-secondary"></i></a>
+                    <a href="#" ><i class="bi bi-instagram fs-4 text-secondary"></i></a>
+                    <a href="#" ><i class="bi bi-linkedin fs-4 text-secondary"></i></a>
+                </div>
+            </div>
+    
+            <div class="col-md-3 lista">
+                <h4 class="fw-bold text-light">Hosting</h4>
+                <ul class="list-unstyled">
+                    <li class="text-light">Web Hosting</li>
+                    <li class="text-light">Free Domain</li>
+                    <li class="text-light">Shared Hosting</li>
+                    <li class="text-light">Cloud Hosting</li>
+                    <li class="text-light">WordPress Hosting</li>
+                    <li class="text-light">WooCommerce Hosting</li>
+                    <li class="text-light">Reseller Hosting</li>
+                    <li class="text-light">Magento Hosting</li>
+                    <li class="text-light">Node.js Hosting</li>
+                    <li class="text-light">Laravel Hosting</li>
+                    <li class="text-light">Python Hosting</li>
+                </ul>
+            </div>
+    
+            <div class="col-md-3 lista">
+                <h4 class="fw-bold text-light">Servers</h4>
+                <ul class="list-unstyled">
+                    <li class="text-light">VPS Hosting</li>
+                    <li class="text-light">Windows VPS</li>
+                    <li class="text-light">Managed VPS</li>
+                    <li class="text-light">cPanel VPS</li>
+                    <li class="text-light">Forex VPS</li>
+                    <li class="text-light">CyberPanel VPS</li>
+                    <li class="text-light">Plesk VPS</li>
+                    <li class="text-light">Virtual Dedicated Server</li>
+                    <li class="text-light">Dedicated Server</li>
+                    <li class="text-light">Bare Metal</li>
+                    <li class="text-light">GPU Dedicated Server</li>
+                </ul>
+            </div>
+    
+            <div class="col-md-3">
+                <h4 class="fw-bold text-light">Cloud</h4>
+                <ul class="list-unstyled lista">
+                    <li class="text-light">Cloud VPS</li>
+                    <li class="text-light">GPU Cloud</li>
+                    <li class="text-light">Managed AWS Cloud</li>
+                    <li class="text-light">Acronis Backup</li>
+                    <li class="text-light">Google Workspace</li>
+                </ul>
+                <h4 class="fw-bold mt-4 text-light">Tools</h4>
+                <ul class="list-unstyled lista">
+                    <li class="text-light">AI Logo Maker</li>
+                    <li class="text-light">AI Website Builder</li>
+                    <li class="text-light">Smart Web Tools</li>
+                </ul>
             </div>
         </div>
     </div>
     
     
+
 </body>
 
 </html>
