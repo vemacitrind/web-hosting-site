@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root {
+    --hColor: #123455;
+}
+
+* {
+    color: var(--hColor);
+}
+
+.dropdown-hosting {
+    position: absolute;
+    left: 0;
+}
+
+*::selection {
+    background: blueviolet;
+    color: yellow;
+}
+
+.btn:not(.btn-primary, .btn-light) {
+    background: #ffc7c7;
+    border: 1px solid #f48989;
+    color: #ed6f6f;
+}
+
+.btn:hover:not(.btn-primary, .btn-light) {
+    background: #ed6f6f;
+    border: 1px solid #ed6f6f;
+    color: #ffffff;
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
+.card.activeCard .btn.btn-lg {
+    transform: scale(1.04);
+    background: #ed6f6f;
+    border: 1px solid #ed6f6f;
+    color: #ffffff;
+}
+
+.plans .card.activeCard {
+    height: 100%;
+    border: 2px solid #f48989;
+    box-shadow: 0 0 5px #f48989;
+}
+
+.plans .card:hover {
+    height: 100%;
+    transform: scale(1.04);
+    transition: 0.4s;
+    box-shadow: 0 0 10px #f48989;
+}
+
+.lista li {
+    margin-bottom: 1rem;
+}
+
+.lista li:hover {
+    text-shadow: 0 0 2px whitesmoke;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 25px;
+}
+
+.navbar-nav .nav-item:hover {
+    background: #ffe5e5;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.img-container::before {
+    content: "80% off";
+    font-size: 3vw;
+    font-family: "Orbitron", serif;
+    position: absolute;
+    top: 24.5%;
+    left: 59%;
+    /* transform: translate(-50%, -50%); */
+    color: #ffc7c7;
+    animation: blink-animation 0.7s infinite step-start;
+}
+
+.accordion-item {
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-button {
+    border-radius: 0;
+    background: none;
+    font-weight: bold;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #f8f9fa;
+    box-shadow: none;
+}
+
+.request {
+    background-color: #F0F0FF;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.stars img {
+    width: auto;
+    height: 15px;
+}
+
+.review-container {
+    position: relative;
+}
+
+.review-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, White 90%);
+    z-index: 1;
+}
+
+.review-container .card-body .p {
+    max-height: 40px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.review-container .card-header {
+    display: flex;
+    align-items: center;
+}
+
+#money-back {
+    background-color: #ffd488;
+}
+
+#globe-data-center {
+    background-color: #f0f0ff;
+}
+
+#high-speed div div {
+    height: 100%;
+    background: greenyellow;
+}
+
+#migration div div{
+    height: 100%;
+    background: #cecef9;
+}
+
+
+.flip-card {
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@media (min-width: 992px) {
+    .border-lg-end {
+        border-right: 1px solid #ccc;
+    }
+
+    .border-lg-end::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 10%;
+        height: 80%;
+        width: 1px;
+        background-color: #ccc;
+    }
+}
