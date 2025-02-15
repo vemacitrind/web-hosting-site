@@ -54,10 +54,24 @@
 
 .lista li {
     margin-bottom: 1rem;
+    position: relative;
+}
+/* .lista li:hover {
+    text-shadow: 0 0 3px whitesmoke;
+} */
+.lista li::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: whitesmoke;
+    transition: width 0.3s ease-in-out;
 }
 
-.lista li:hover {
-    text-shadow: 0 0 2px whitesmoke;
+.lista li:hover::after {
+    width: 100%;
 }
 
 .navbar-nav .nav-item {
