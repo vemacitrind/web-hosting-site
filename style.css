@@ -19,14 +19,14 @@
 }
 
 .btn:not(.btn-primary, .btn-light) {
-    background: #ffc7c7;
-    border: 1px solid #f48989;
-    color: #ed6f6f;
+    background: #7676c6;
+    border: 1px solid #5d5dc6;
+    color: #ffffff;
 }
 
 .btn:hover:not(.btn-primary, .btn-light) {
-    background: #ed6f6f;
-    border: 1px solid #ed6f6f;
+    background: #5d5dc6;
+    border: 2px solid #4949c6;
     color: #ffffff;
     transform: scale(1.04);
     transition: 0.2s;
@@ -34,22 +34,22 @@
 
 .card.activeCard .btn.btn-lg {
     transform: scale(1.04);
-    background: #ed6f6f;
-    border: 1px solid #ed6f6f;
+    background: #5d5dc6;
+    border: 1px solid #4949c6;
     color: #ffffff;
 }
 
 .plans .card.activeCard {
     height: 100%;
-    border: 2px solid #f48989;
-    box-shadow: 0 0 5px #f48989;
+    border: 2px solid #7676c6;
+    box-shadow: 0 0 5px #5d5dc6;
 }
 
 .plans .card:hover {
     height: 100%;
     transform: scale(1.04);
     transition: 0.4s;
-    box-shadow: 0 0 10px #f48989;
+    box-shadow: 0 0 10px #7676c6;
 }
 
 .lista li {
@@ -79,7 +79,7 @@
 }
 
 .navbar-nav .nav-item:hover {
-    background: #ffe5e5;
+    background: #7373cc2d;
     border-radius: 10px;
     transition: all 0.3s ease;
 }
@@ -92,7 +92,7 @@
     top: 24.5%;
     left: 59%;
     /* transform: translate(-50%, -50%); */
-    color: #ffc7c7;
+    color: #7676c6;
     animation: blink-animation 0.7s infinite step-start;
 }
 
@@ -162,6 +162,13 @@
 #high-speed div div {
     height: 100%;
     background: greenyellow;
+}
+
+.cart{
+    color: gray;
+}
+.cart:hover{
+    color: rgb(0, 127, 255);
 }
 
 #migration div div{
