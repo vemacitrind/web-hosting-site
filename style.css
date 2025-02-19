@@ -165,7 +165,7 @@
     background-color: #f0f0ff;
 }
 
-#high-speed div div {
+#high-speed div div{
     height: 100%;
     background: greenyellow;
 }
@@ -296,3 +296,27 @@ button {
 button i {
     font-size: 1.2rem;
 }
+#satisfation{
+    display: none;
+}
+
+#social i:hover{
+    color: rgb(237, 226, 226);
+    text-shadow: 0 0 4px whitesmoke;
+    transition: 0.1s ease-in-out;
+}
+
+@media (max-width: 767px) { /* md breakpoint in Tailwind is 768px */
+    .review-container .card-body {
+        display: none;
+    }
+    .review-container::after{
+        height: 0;
+    }
+    #satisfaction{
+        display: block;
+    }
+    .flip-card{
+        display: none;
+    }
+  }
