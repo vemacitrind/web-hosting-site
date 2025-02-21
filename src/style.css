@@ -94,7 +94,7 @@
     left: 59%;
     /* transform: translate(-50%, -50%); */
     color: #7676c6;
-    animation: blink-animation 0.7s 3 step-start;
+    animation: blink-animation 0.9s infinite step-start;
 }
 
 .accordion-item {
@@ -256,14 +256,14 @@
     position: fixed;
     bottom: 80px;
     right: 20px;
-    width: 350px;  /* Increased size */
+    width: 350px; 
     background: white;
     border-radius: 20px !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: none;
     overflow: hidden;
     max-height: 80vh; 
-    z-index: 99; /* Prevent chat box from becoming too large */
+    z-index: 99; 
 }
 
 .brand-logo {
