@@ -317,7 +317,7 @@
             cartContainer.innerHTML = '';
 
             cart.forEach((item, index) => {
-                let itemPrice = item.price * 12; 
+                let itemPrice = item.price ; 
                 subtotal += itemPrice;
 
                 let cartItem = document.createElement('div');
@@ -345,6 +345,12 @@
 
         function removeItem(index) {
             cart.splice(index, 1);
+            if(cart.length == 0){
+                document.getElementById('goingToAppear').innerHTML = `<div id="empty-cart" class="text-center py-5">
+                    <i class="bi bi-cart-x fs-1 text-muted"></i>
+                    <h3 class="mt-3">Cart is Empty</h3>
+                </div>`;
+            }
             updateCartBadge();
             updateCartView();
         }
