@@ -28,7 +28,7 @@
         display: none;
     }
     #cart-badge {
-        /* display: none;  */
+        display: none; 
         width: 10px;
         height: 10px;
         background-color: rgb(0, 127, 255);
@@ -38,7 +38,13 @@
         right: 1px;
         transform: translate(50%, -50%);
     }
-
+    .bi-reply-fill::before {
+        content: "\f51f";
+        transform: rotateY(180deg);
+    }
+    #goingToAppear{
+        display: none;
+    }
 </style>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -47,7 +53,7 @@
                 <img src="assets/logo.png" alt="" style="width: 16vh;">
             </a>
             
-            <a href="#" class="position-relative">
+            <a href="#" class="position-relative" onclick="abrakabra()">
                 <i class="bi bi-cart3 fs-4 cart"></i>
                 <span id="cart-badge"></span>
             </a>
@@ -128,9 +134,38 @@
         </div>
     </div>
     </div>
+
     <div id="goingToAppear">
+        <div class="container-fluid px-3 px-lg-5 py-2 my-md-5">
+            <h2>Review & Checkout</h2>
+            <div class="row mt-5">
+                <div class="col-12 col-md-8 mb-3 mb-md-0">
+                    <div class="card shadow-lg">
+                        <div class="card-header fs-6 py-3">
+                            Product
+                        </div>
+                        <div class="card-body" id="cart-items"></div>
+                    </div>
+                </div>
+        
+                <div class="col-12 col-md-4">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-header fs-3 border-bottom-0 text-light" style="background-color: #083bb4;">
+                            Order Summary
+                        </div>
+                        <div class="card-body pt-5 " style="background-color: #083bb4;">
+                            <p class="text-light">Subtotal: <span class="text-light" id="subtotal">0</span> INR</p>
+                            <p class="text-light">GST (18%): <span class="text-light" id="gst">0</span> INR</p>
+                            <p class="text-light">Total: <br><strong class="text-light fs-2"> <span class="text-light" id="total">0</span> INR</strong></p>
+                            <button class="btn btn-primary w-100" id="checkout" style="background-color: rgb(214, 228, 255); color: #083bb4;"><i class="bi bi-reply-fill me-1" style="transform: rotateZ(180deg); color: #083bb4;"></i>Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </div>
+
     <div class="container-fluid mt-5 py-5" style="background: #061a40;">
         <div class="row ps-md-5 pb-5">
             <div class="col-md-3 px-4 mb-5 mb-md-0">
@@ -208,6 +243,7 @@
             </div>
         </div>
     </div>   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
@@ -222,6 +258,18 @@
                 cartBadge.style.display = 'block';
             } else {
                 cartBadge.style.display = 'none';
+            }
+        }
+
+        function abrakabra(){
+            document.getElementById('goingTohidden').style.display = 'none';
+            document.getElementById('goingToAppear').style.display = 'block';
+            if(cart.length == 0){
+                document.getElementById('goingToAppear').innerHTML = `<div id="empty-cart" class="text-center py-5">
+                    <i class="bi bi-cart-x fs-1 text-muted"></i>
+                    <h3 class="mt-3">Your Cart is Empty</h3>
+                    <p class="text-muted">Looks like you haven't added anything to your cart yet.</p>
+                </div>`;
             }
         }
 
@@ -254,12 +302,53 @@
                 button.style.backgroundColor = '#0d6efd';
             });
             updateCartBadge();
+            updateCartView();
         });
         document.getElementById('delete').addEventListener('click', () => {
             cart.pop();
             updateCartBadge();
         });
+    </script>
+    <script>
+        function updateCartView() {
+            let cartContainer = document.getElementById('cart-items');
+            let subtotal = 0;
+            
+            cartContainer.innerHTML = '';
 
+            cart.forEach((item, index) => {
+                let itemPrice = item.price * 12; 
+                subtotal += itemPrice;
+
+                let cartItem = document.createElement('div');
+                cartItem.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'border-bottom', 'py-2');
+
+                cartItem.innerHTML = `
+                    <div class="col text-primary">
+                        ${item.domainname}
+                    </div>
+                    <div class="col text-end ">
+                        ${itemPrice} INR/1yr
+                    </div>
+                    <button class="ms-3 p-1" style="border-radius:0.5cap;border:none; background-color: rgb(13, 110, 253)" onclick="removeItem(${index})"><i class="bi bi-trash-fill text-light"></i></button>
+                `;
+
+                cartContainer.appendChild(cartItem);
+            });
+
+            let gst = subtotal * 0.18;
+            let total = subtotal + gst;
+            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('gst').textContent = gst.toFixed(2);
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartBadge();
+            updateCartView();
+        }
+        updateCartView();
     </script>
 </body>
 </html>
