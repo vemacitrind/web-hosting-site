@@ -147,7 +147,7 @@
                     <div class="card-body">
                         <h3 class="text-dark"><sup class="fs-6">₹</sup>69.00/mo</h3>
                         <div class="d-grid my-3">
-                            <button class="btn btn-lg">Add to Cart</button>
+                            <button class="btn btn-lg" >Add to Cart</button>
                         </div>
                         <ul class="list-unstyled">
                             <li><i class="bi bi-check text-success me-1"></i> 1 Website</li>
@@ -180,7 +180,7 @@
                     <div class="card-body">
                         <h3 class="text-dark"><sup class="fs-6">₹</sup>119.00/mo</h3>
                         <div class="d-grid my-3">
-                            <button class="btn btn-lg">Add to Cart</button>
+                            <button class="btn btn-lg" >Add to Cart</button>
                         </div>
                         <ul class="list-unstyled">
                             <ul class="list-unstyled">
@@ -217,8 +217,7 @@
                     <div class="card-body">
                         <h3 class="text-dark"><sup class="fs-6">₹</sup>199.00/mo</h3>
                         <div class="d-grid my-3">
-                            <button class="btn btn-lg">Add to
-                                Cart</button>
+                            <button class="btn btn-lg" >Add to Cart</button>
                         </div>
                         <ul class="list-unstyled">
                             <li><i class="bi bi-check text-success me-1"></i> 200 Websites</li>
@@ -252,8 +251,7 @@
                     <div class="card-body">
                         <h3 class="text-dark"><sup class="fs-6">₹</sup>599.00/mo</h3>
                         <div class="d-grid my-3">
-                            <button class="btn btn-lg">Add to
-                                Cart</button>
+                            <button class="btn btn-lg" >Add to Cart</button>
                         </div>
                         <ul class="list-unstyled">
                             <li><i class="bi bi-check text-success me-1"></i> 400 Websites</li>
@@ -291,7 +289,7 @@
                         <div class="card-body">
                             <h3 class="text-dark"><sup class="fs-6">₹</sup>69.00/mo</h3>
                             <div class="d-grid my-3">
-                                <button class="btn btn-lg">Add to Cart</button>
+                                <button class="btn btn-lg" >Add to Cart</button>
                             </div>
                             <ul class="list-unstyled">
                                 <li><i class="bi bi-check text-success me-1"></i> 1 Website</li>
@@ -326,7 +324,7 @@
                         <div class="card-body">
                             <h3 class="text-dark"><sup class="fs-6">₹</sup>119.00/mo</h3>
                             <div class="d-grid my-3">
-                                <button class="btn btn-lg">Add to Cart</button>
+                                <button class="btn btn-lg" >Add to Cart</button>
                             </div>
                             <ul class="list-unstyled">
                                 <ul class="list-unstyled">
@@ -364,8 +362,7 @@
                         <div class="card-body">
                             <h3 class="text-dark"><sup class="fs-6">₹</sup>199.00/mo</h3>
                             <div class="d-grid my-3">
-                                <button class="btn btn-lg">Add to
-                                    Cart</button>
+                                <button class="btn btn-lg" >Add to Cart</button>
                             </div>
                             <ul class="list-unstyled">
                                 <li><i class="bi bi-check text-success me-1"></i> 200 Websites</li>
@@ -400,8 +397,7 @@
                         <div class="card-body">
                             <h3 class="text-dark"><sup class="fs-6">₹</sup>599.00/mo</h3>
                             <div class="d-grid my-3">
-                                <button class="btn btn-lg">Add to
-                                    Cart</button>
+                                <button class="btn btn-lg" >Add to Cart</button>
                             </div>
                             <ul class="list-unstyled">
                                 <li><i class="bi bi-check text-success me-1"></i> 400 Websites</li>
@@ -1024,7 +1020,10 @@
                 </div>
             </div>
         </div>
-    </div>   
+        <div>
+            © Copyright 2025 Webant Internet Services Pvt Ltd - Best Web Hosting Provider in India. Company Registration No. 00007.
+        </div>
+    </div>
 
     <div class="chat-box border rounded-4" id="chatBox">
         <div class="container bg-primary text-light d-flex justify-content-center py-3 align-items-center fs-4">
@@ -1079,7 +1078,15 @@
         function sendQuickMessage(message) {
             document.getElementById('userMessage').value = message;
         }
-
+        document.querySelectorAll('.btn.btn-lg').forEach(button => {
+            button.addEventListener('click', function() {
+                let card = this.closest('.card');
+                let planName = card.querySelector('.card-header h4').innerText;
+                let priceText = card.querySelector('.card-body h3').innerText.trim();
+                let price = priceText.match(/[\d.]+/)[0];
+                window.open( `buy.html?header=${encodeURIComponent(planName)}&price=${encodeURIComponent(price)}`,'_blank');
+            });
+        });
     </script>
 </body>
 

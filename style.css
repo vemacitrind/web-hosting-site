@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 :root {
     --hColor: #123455;
 }
 
 * {
     color: var(--hColor);
+    font-family: "Figtree";
 }
 
 .dropdown-hosting {
@@ -93,7 +94,7 @@
     left: 59%;
     /* transform: translate(-50%, -50%); */
     color: #7676c6;
-    animation: blink-animation 0.7s infinite step-start;
+    animation: blink-animation 0.7s 3 step-start;
 }
 
 .accordion-item {
@@ -296,7 +297,7 @@ button {
 button i {
     font-size: 1.2rem;
 }
-#satisfation{
+#satisfaction{
     display: none;
 }
 
@@ -306,7 +307,7 @@ button i {
     transition: 0.1s ease-in-out;
 }
 
-@media (max-width: 767px) { /* md breakpoint in Tailwind is 768px */
+@media (max-width: 767px) {
     .review-container .card-body {
         display: none;
     }
@@ -320,3 +321,15 @@ button i {
         display: none;
     }
   }
+
+@media (max-width: 768px) {
+    .img-container::before {
+        font-size: 7vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-container::before  {
+    font-size: 7vw;
+    }
+}

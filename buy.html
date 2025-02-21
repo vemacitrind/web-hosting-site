@@ -9,23 +9,60 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    #addToCart,#delete{
+        background-color: rgb(214, 228, 255);
+        border-radius: 0.5cap;
+        font-size: 17px;
+        color: rgb(0, 127, 255);
+        border: none;
+    }
+    #delete{
+        display: none;
+        border-radius: 0 0.5cap 0.5cap 0;
+    }
+    #addToCart:hover,#delete:hover{
+        background-color: rgb(185, 209, 255);
+    }
+    #addCartContainer{
+        display: none;
+    }
+    #cart-badge {
+        /* display: none;  */
+        width: 10px;
+        height: 10px;
+        background-color: rgb(0, 127, 255);
+        border-radius: 50%;
+        position: absolute;
+        top: 8px;
+        right: 1px;
+        transform: translate(50%, -50%);
+    }
+
+</style>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid px-lg-5">
-            <a class="navbar-brand" href="#"><img src="assets/logo.png" alt=""
-                    style="width: 16vh;"></a>
-            <a href="#"><i class="bi bi-cart3 fs-4 cart"></i></a>
+        <div class="container-fluid px-lg-5 position-relative">
+            <a class="navbar-brand" href="#">
+                <img src="assets/logo.png" alt="" style="width: 16vh;">
+            </a>
+            
+            <a href="#" class="position-relative">
+                <i class="bi bi-cart3 fs-4 cart"></i>
+                <span id="cart-badge"></span>
+            </a>
         </div>
     </nav>
-    <div class="container-fluid px-3 px-lg-5 py-5">
+    <div id="goingTohidden">
+    <div class="container-fluid px-3 px-lg-5 py-2 my-md-5">
         <h1>
             Choose a Domain...
         </h1>
-        <p>
+        <p id="planName">
             Selected Product: Shared Hosting - Elite
         </p>
 
-        <form class="mt-5 shadow-lg rounded-4">
+        <form class="mt-5 shadow-lg rounded-4" onsubmit="check()">
             <div class="mb-3 p-4 p-md-5">
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="domainOption" id="registerDomain" checked>
@@ -49,15 +86,19 @@
             <div class="container-fluid rounded-bottom-4 p-md-5 bg-primary">
                 <div class="row">
                     <div class="col-md-7 my-2 my-md-0">
-                        <input type="text" class="form-control" placeholder="Enter your domain name">
+                        <input type="text" class="form-control" placeholder="Enter your domain name" required>
                     </div>
                     <div class="col-md-3 my-2 my-md-0">
                         <select class="form-select">
                             <option>.com</option>
                             <option>.in</option>
+                            <option>.us</option>
+                            <option>.au</option>
+                            <option>.sg</option>
                             <option>.ai</option>
                             <option>.io</option>
                             <option>.net</option>
+                            <option>.edu</option>
                             <option>.org</option>
                         </select>
                     </div>
@@ -68,29 +109,42 @@
             </div>
         </form>
     </div>
-
-    <div class="container-fluid px-3 px-lg-5 py-5">
-        <div class="row">
-            <div class="col-12 col-md-7 container"></div>
-            <div class="col-12 col-md-5">
-                <button>Add to Cart</button>
+    <!-- This needed to be hidden-->
+    <div class="container-fluid px-3 px-lg-5 py-2 my-md-5" id="addCartContainer">
+        <div class="row mx-2 mx-md-2 rounded-4 shadow-lg py-5 align-items-center">
+            <div class="col-12 col-md-8 container justify-content-center">
+                <div class="row">
+                    <div class="col-12 col-md-2 d-flex justify-content-center align-items-center"><i class="bi bi-check-lg text-success fs-1 rounded-circle p-2" style="background-color: #e7f8eb; "></i></div>
+                    <div class="col-12 col-md-10 fs-3 text-center text-md-start">
+                        <p id="plan_text" class="text-success mb-0"><b class="text-success">webant.com</b> is avalible.</p>
+                        <p id="plan_amount" class="fs-1 fw-bold">Rs.1199.00 INR/1yr</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+                <button id="addToCart" class="p-3">Add to Cart</button>
+                <button id="delete" class="p-3"><i class="bi bi-trash-fill text-light"></i></button>
             </div>
         </div>
     </div>
+    </div>
+    <div id="goingToAppear">
+        
+    </div>
     <div class="container-fluid mt-5 py-5" style="background: #061a40;">
         <div class="row ps-md-5 pb-5">
-            <div class="col-md-3 px-4">
+            <div class="col-md-3 px-4 mb-5 mb-md-0">
                 <img src="assets/logo-white.png" alt="Company Logo" class="img-fluid mb-3" style="max-width: 150px;">
                 <p class="text-light">Founded in 2024 with an aim to gain good marks in FSD practicals.</p>
                 <div class="d-flex gap-3" id="social">
-                    <a href="#"><i class="bi bi-facebook fs-4 text-secondary"></i></a>
-                    <a href="#"><i class="bi bi-twitter fs-4 text-secondary"></i></a>
-                    <a href="#"><i class="bi bi-instagram fs-4 text-secondary"></i></a>
-                    <a href="#"><i class="bi bi-linkedin fs-4 text-secondary"></i></a>
+                    <a href="#"><i class="bi bi-facebook fs-4 "></i></a>
+                    <a href="#"><i class="bi bi-twitter fs-4 "></i></a>
+                    <a href="#"><i class="bi bi-instagram fs-4 "></i></a>
+                    <a href="#"><i class="bi bi-linkedin fs-4 "></i></a>
                 </div>
             </div>
 
-            <div class="col-md-3 lista">
+            <div class="col-md-3 lista mb-3 mb-md-0">
                 <h4 class="fw-bold text-light">Hosting</h4>
                 <ul class="list-unstyled">
                     <li class="text-light">Web Hosting</li>
@@ -107,7 +161,7 @@
                 </ul>
             </div>
 
-            <div class="col-md-3 lista">
+            <div class="col-md-3 lista mb-3 mb-md-0">
                 <h4 class="fw-bold text-light">Servers</h4>
                 <ul class="list-unstyled">
                     <li class="text-light">VPS Hosting</li>
@@ -124,7 +178,7 @@
                 </ul>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3 mb-md-0">
                 <h4 class="fw-bold text-light">Cloud</h4>
                 <ul class="list-unstyled lista">
                     <li class="text-light">Cloud VPS</li>
@@ -153,7 +207,59 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const planName = params.get('header');
+        const price = params.get('price');
+        document.getElementById('planName').innerText = `Selected Product: Shared Hosting - ${planName}`;
+        let cart = []
+        function updateCartBadge() {
+            let cartBadge = document.getElementById('cart-badge');
+            
+            if (cart.length > 0) {
+                cartBadge.style.display = 'block';
+            } else {
+                cartBadge.style.display = 'none';
+            }
+        }
+
+        function check(){
+            event.preventDefault();
+            let domainName = document.querySelector('input[type="text"]').value.trim();
+            let domainExtension = document.querySelector('.form-select').value;
+            let fullDomain = domainName + domainExtension;
+            let addToCart = document.getElementById('addToCart');
+            document.getElementById('plan_text').innerHTML = `<b class="text-success">${fullDomain}</b> is avalible.`;
+            document.getElementById('plan_amount').innerHTML = `Rs. ${parseFloat(price)*12} INR/1yr`;
+            document.getElementById('addCartContainer').style.display = 'block';
+        }
+
+        document.getElementById('addToCart').addEventListener('click', () => {
+            let domainName = document.querySelector('input[type="text"]').value.trim();
+            let domainExtension = document.querySelector('.form-select').value;
+            let fullDomain = domainName + domainExtension;
+            let item = {
+                domainname: fullDomain,
+                price: parseFloat(price) * 12
+            };
+            cart.push(item);
+            document.getElementById('delete').style.display='block';
+            document.getElementById('addToCart').style.borderRadius=`0.5cap 0 0 0.5cap`;
+            document.getElementById('addToCart').style.borderRight=`1px solid #165bc2`;
+            
+            document.querySelectorAll('#addCartContainer button').forEach(button => {
+                button.style.color = 'white';
+                button.style.backgroundColor = '#0d6efd';
+            });
+            updateCartBadge();
+        });
+        document.getElementById('delete').addEventListener('click', () => {
+            cart.pop();
+            updateCartBadge();
+        });
+
+    </script>
 </body>
 </html>
