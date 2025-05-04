@@ -2,9 +2,9 @@
 
 This is a fully responsive Web Hosting website built using **Bootstrap 5**.
 
-## Screenshot
+## View
 
-![screenshot](https://github.com/user-attachments/assets/7b949d55-5cee-4301-b6a8-de350d818b93)
+![View](https://github.com/user-attachments/assets/7b949d55-5cee-4301-b6a8-de350d818b93)
 
 
 ## Features
